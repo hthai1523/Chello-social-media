@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import Story from './Story';
-import { Button } from '../ui/button';
 import { ChevronRight, ChevronLeft, Plus } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const data = [
     { id: 1, src: '/images/story.png' },

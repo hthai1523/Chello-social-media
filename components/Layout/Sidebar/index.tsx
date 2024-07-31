@@ -40,7 +40,7 @@ const Sidebar = () => {
                             width={18}
                             height={18}
                         />
-                        <p className="text-base font-medium flex-1">{link.label}</p>
+                        <p className="text-base font-medium flex-1 hidden md:block">{link.label}</p>
                     </Link>
                 );
             })}

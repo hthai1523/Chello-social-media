@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { FaHeart, FaRegHeart } from 'react-icons/fa6';

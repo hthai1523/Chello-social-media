@@ -1,6 +1,7 @@
 import Header from '@/components/Layout/Header';
 import Rightbar from '@/components/Layout/Rightbar';
 import Sidebar from '@/components/Layout/Sidebar';
+import { Toaster } from '@/components/ui/toaster';
 import React, { ReactElement } from 'react';
 
 const HomeLayout = ({ children }: { children: ReactElement }) => {
@@ -18,6 +19,7 @@ const HomeLayout = ({ children }: { children: ReactElement }) => {
                     <Rightbar />
                 </section>
             </div>
+            <Toaster />
         </main>
     );
 };

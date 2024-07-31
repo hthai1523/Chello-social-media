@@ -1,3 +1,5 @@
+import { ChartColumnBig, Hourglass, Image, Mic, Radio, Video } from 'lucide-react';
+
 const sidebarLinks = [
     {
         label: 'Home',
@@ -42,7 +44,7 @@ const sidebarLinks = [
     {
         label: 'My Profile',
         imgUrl: '/icons/user-favorite.svg',
-        route: '/user-favorite',
+        route: '/profile',
     },
     {
         label: 'More',
@@ -52,9 +54,54 @@ const sidebarLinks = [
     {
         label: 'Private Event',
         imgUrl: '/icons/calendar-x.svg',
-        route: '/private-event',
+        route: '/privateEvent',
     },
-   
+];
+
+const routes = [
+    {
+        path: '/postImage',
+        label: 'postImage',
+        icon: <Image size={20} className="" color="#a8a8a8" />,
+    },
+    {
+        path: '/postVideo',
+        label: 'postVideo',
+        icon: <Video size={20} className="" color="#a8a8a8" />,
+    },
+    {
+        path: '/record',
+        label: 'record',
+        icon: <Mic size={20} className="" color="#a8a8a8" />,
+    },
+    {
+        path: '/postSurvey',
+        label: 'postSurvey',
+        icon: <ChartColumnBig size={20} className="" color="#a8a8a8" />,
+    },
+    {
+        path: '/postLater',
+        label: 'postLater',
+        icon: <Hourglass size={20} className="" color="#a8a8a8" />
+    },
+    {
+        path: '/postRadio',
+        label: 'postRadio',
+        icon: <Radio size={20} className="" color="#a8a8a8" />
+    },
+];
+
+const listNotifications = [
+    'All',
+    'Subscriptions',
+    'Payments',
+    'Tips',
+    'Followers',
+    'Fans',
+    'Likes',
+    'Comments',
+    'Mentions',
+    'Campaigns',
 ]
 
-export {sidebarLinks}
+export { sidebarLinks, routes, listNotifications };
