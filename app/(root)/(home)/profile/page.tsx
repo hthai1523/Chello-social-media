@@ -1,13 +1,9 @@
-import React from 'react'
+import FollowerSection from '@/components/Profile/FollowerSection';
+
+import React from 'react';
 
 const Profile = () => {
-  return (
-    <div className='-my-6 -mx-4'>
-      <div className="bg-[#F1F1FF] w-full h-72">
-        
-      </div>
-    </div>
-  )
-}
+    return <FollowerSection />;
+};
 
-export default Profile
+export default Profile;

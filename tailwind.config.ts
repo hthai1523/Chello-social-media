@@ -77,7 +77,8 @@ const config = {
             },
             backgroundImage: {
                 hero: "url('/images/cardImageSearch.png')",
-                'custom-gradient': 'linear-gradient(to right, #B6B6F5, #EFEFFF)'
+                'custom-gradient': 'linear-gradient(to right, #B6B6F5, #EFEFFF)',
+                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
             },
         },
     },

@@ -1,3 +1,4 @@
+import Footer from '@/components/Layout/Footer';
 import Header from '@/components/Layout/Header';
 import Rightbar from '@/components/Layout/Rightbar';
 import Sidebar from '@/components/Layout/Sidebar';
@@ -19,6 +20,7 @@ const HomeLayout = ({ children }: { children: ReactElement }) => {
                     <Rightbar />
                 </section>
             </div>
+            <Footer />
             <Toaster />
         </main>
     );
