@@ -11,7 +11,7 @@ interface AvatarViewProps {
     haveStory?: boolean
 }
 
-const ProfileView = ({src, size, name, tag, haveStory} : AvatarViewProps) => {
+const ProfileView = ({src, size = 60, name, tag, haveStory} : AvatarViewProps) => {
   return (
     <div className='flex items-center justify-start gap-2'>
         <Avatar className={`size-[${size}px]`}>

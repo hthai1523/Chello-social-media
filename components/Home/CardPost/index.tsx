@@ -44,7 +44,7 @@ const CardPost = () => {
     return (
         <div className="w-full relative space-y-4">
             <div className="flex items-center justify-between">
-                <ProfileView src='/images/User.jpg' size={60} name="Hoang Thai" tag='thaihoang' haveStory={true} />
+                <ProfileView src='/images/User.jpg' name="Hoang Thai" tag='thaihoang' haveStory={true} />
 
                 <div className="inline-flex items-center gap-2">
                     <span className="text-[#d3d3d3] text-sm">March 24</span>
