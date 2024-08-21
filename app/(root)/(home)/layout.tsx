@@ -21,7 +21,6 @@ const HomeLayout = ({ children }: { children: ReactElement }) => {
                 </section>
             </div>
             <Footer />
-            <Toaster />
         </main>
     );
 };

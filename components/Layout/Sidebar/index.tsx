@@ -8,17 +8,17 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { FaPlus } from "react-icons/fa6";
+import { FaPlus } from 'react-icons/fa6';
+import { SignedIn, UserButton } from '@clerk/nextjs';
 
 const Sidebar = () => {
     const pathname = usePathname();
     return (
         <nav className="flex flex-col p-8 w-full h-screen ">
             <div className="py-4">
-                <Avatar className="">
-                    <AvatarImage src="https://github.com/shadcn.png" />
-                    <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
             </div>
             {sidebarLinks.map((link) => {
                 const isActive = pathname === link.route || pathname.startsWith(`${link.route}/`);
@@ -45,7 +45,7 @@ const Sidebar = () => {
                 );
             })}
 
-            <Button className='bg-primary-2 text-white w-fit gap-2 mt-6'>
+            <Button className="bg-primary-2 text-white w-fit gap-2 mt-6">
                 <FaPlus />
                 New Post
             </Button>

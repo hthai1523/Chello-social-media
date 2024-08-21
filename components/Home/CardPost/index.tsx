@@ -8,7 +8,42 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa6';
 import ProfileView from '@/components/ui/profileView';
 
 const listImage = ['/images/postImage.png', '/images/postImage.png', '/images/postImage.png'];
-const CardPost = () => {
+
+interface CardPost {
+    id?: number;
+    content?: string;
+    createdAt?: string;
+    user?: {
+        id: number;
+        name: string;
+        avatar: string;
+    };
+    imageUrls?: string[];
+    comments?: {
+        id: number;
+        content: string;
+        createdAt: string;
+        user: {
+            id: number;
+            name: string;
+            avatar: string;
+        };
+    }[];
+    likes?: {
+        id: number;
+        userId: number;
+    }[];
+    options?: {
+        id: number;
+        title: string;
+        votes: number;
+    }[];
+    totalVotes?: number;
+    isVote?: boolean;
+    isLike?: boolean;
+}
+
+const CardPost = ({ isLike }: CardPost) => {
     const [isLiked, setIsLiked] = useState(false);
     const [options, setOptions] = useState([
         {
@@ -34,17 +69,22 @@ const CardPost = () => {
                 return 'grid-cols-3 grid-rows-2';
         }
     };
-    const handleVote = (index:number) => {
-        const newOptions = options.map((option) => 
-          option.id === index ? { ...option, votes: option.votes + 1 } : option
+    const handleVote = (index: number) => {
+        const newOptions = options.map((option) =>
+            option.id === index ? { ...option, votes: option.votes + 1 } : option,
         );
         setOptions(newOptions);
-      };
-    
+    };
+
     return (
         <div className="w-full relative space-y-4">
+            {isLike && (
+                <p>
+                    You liked <span className="font-bold">Hoang Thai's</span> post
+                </p>
+            )}
             <div className="flex items-center justify-between">
-                <ProfileView src='/images/User.jpg' name="Hoang Thai" tag='thaihoang' haveStory={true} />
+                <ProfileView src="/images/User.jpg" name="Hoang Thai" tag="thaihoang" haveStory={true} />
 
                 <div className="inline-flex items-center gap-2">
                     <span className="text-[#d3d3d3] text-sm">March 24</span>

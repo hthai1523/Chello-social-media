@@ -1,20 +1,20 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import React from 'react';
-import { FaFacebookF, FaTwitter } from 'react-icons/fa6';
-import { FcGoogle } from 'react-icons/fc';
-import * as z from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import Link from 'next/link';
 import { Separator } from '@/components/ui/separator';
-
+import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { FaFacebookF, FaTwitter } from 'react-icons/fa6';
+import { FcGoogle } from 'react-icons/fc';
+import { z } from 'zod';
 const formSchema = z
     .object({
         emailAddress: z.string().email(),
-        fullname: z.string(),
+        firstName: z.string(),
+        lastName: z.string(),
         password: z.string().min(8).max(32),
         confirmPassword: z.string(),
     })
@@ -28,11 +28,25 @@ const formSchema = z
         },
     );
 
-export default function Register() {
+interface SignUpFormProps {
+    signUpWithEmail: ({
+        firstName,
+        lastName,
+        emailAddress,
+        password,
+    }: {
+        firstName: string;
+        lastName: string;
+        emailAddress: string;
+        password: string;
+    }) => void;
+}
+const RegisterForm = ({ signUpWithEmail }: SignUpFormProps) => {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            fullname: '',
+            firstName: '',
+            lastName: '',
             emailAddress: '',
             password: '',
             confirmPassword: '',
@@ -41,6 +55,12 @@ export default function Register() {
 
     const handleSubmit = (value: z.infer<typeof formSchema>) => {
         console.log({ value });
+        signUpWithEmail({
+            firstName: value.firstName,
+            lastName: value.lastName,
+            emailAddress: value.emailAddress,
+            password: value.password,
+        });
     };
 
     return (
@@ -51,10 +71,23 @@ export default function Register() {
                     <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4 ">
                         <FormField
                             control={form.control}
-                            name="fullname"
+                            name="firstName"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className="text-sm text-[#7B7B7B]">Full Name</FormLabel>
+                                    <FormLabel className="text-sm text-[#7B7B7B]">First Name</FormLabel>
+                                    <FormControl>
+                                        <Input {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="lastName"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel className="text-sm text-[#7B7B7B]">Last Name</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
                                     </FormControl>
@@ -148,4 +181,6 @@ export default function Register() {
             </div>
         </section>
     );
-}
+};
+
+export default RegisterForm;
