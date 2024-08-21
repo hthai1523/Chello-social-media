@@ -80,7 +80,7 @@ const CardPost = ({ isLike }: CardPost) => {
         <div className="w-full relative space-y-4">
             {isLike && (
                 <p>
-                    You liked <span className="font-bold">Hoang Thai's</span> post
+                    You liked <span className="font-bold">Hoang Thais</span> post
                 </p>
             )}
             <div className="flex items-center justify-between">
