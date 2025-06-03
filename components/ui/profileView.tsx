@@ -4,9 +4,9 @@ import { AvatarImage } from '@radix-ui/react-avatar'
 import { cn } from '@/lib/utils'
 
 interface AvatarViewProps {
-    src: string
+    src: string | '/images/Ellipse 10.png'
     size?: number
-    name?: string
+    name?: string | ''
     tag?: string
     haveStory?: boolean
 }

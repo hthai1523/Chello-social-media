@@ -9,16 +9,19 @@ import React from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { FaPlus } from 'react-icons/fa6';
-import { SignedIn, UserButton } from '@clerk/nextjs';
+import { SignedIn, UserButton, useUser } from '@clerk/nextjs';
 
 const Sidebar = () => {
     const pathname = usePathname();
+    const {user} = useUser()
+    
     return (
         <nav className="flex flex-col p-8 w-full h-screen ">
             <div className="py-4">
-                <SignedIn>
-                    <UserButton />
-                </SignedIn>
+                <Avatar>
+                    <AvatarImage src={user?.imageUrl} />
+                    <AvatarFallback>{user?.fullName?.slice(0,1)}</AvatarFallback>
+                </Avatar>
             </div>
             {sidebarLinks.map((link) => {
                 const isActive = pathname === link.route || pathname.startsWith(`${link.route}/`);
